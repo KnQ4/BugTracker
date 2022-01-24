@@ -1,11 +1,57 @@
-{% extends 'accounts/main.html' %}
-
-{% include 'accounts/navbar.html' %}
-
-{% block content %}
+{%load static%}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
-<p>Manage Role</p>
+<main>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i>
+                    Bar Chart Example
+                </div>
+                <div class="chart-container" style="display: block; height: 378px; width: 756px;">
+                    <canvas id="myBarChart" ></canvas>
+                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            </div>
+        </div>
+    </div>  
+</main>
 
-{% endblock %}
+<script>
+    const labels = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+    ];
+  
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'My First dataset',
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: [0, 10, 5, 2, 20, 30, 45],
+      }]
+    };
+  
+    const config = {
+      type: 'bar',
+      data: data,
+      options: {}
+    };
+  </script>
+   
+
+   <script>
+    const myChart = new Chart(
+      document.getElementById('myBarChart'),
+      config
+    );
+  </script>
+
 
